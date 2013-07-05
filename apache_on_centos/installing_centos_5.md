@@ -78,4 +78,14 @@ Once Apache starts successfully, disable the Welcome page. Edit the `/etc/httpd/
 
 
 ### Configure to Start Automatically on Restart
-TODO
+By default, Apache does not automatically start on a system restart. Add the following lines to the end of the `/etc/rc.local` file:
+
+	apachectl start
+
+Next time you restart your CentOS server, Apache should start automatically. The best way to check if Apache started successfully is to view the Apache error log file, `/etc/httpd/logs/error_log`:
+
+	tail /etc/httpd/logs/error_log
+
+You should see something like the following at the bottom of the file:
+
+	Apache/2.2.3 (CentOS) configured -- resuming normal operations
